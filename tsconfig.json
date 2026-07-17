@@ -1,15 +1,13 @@
 {
    "files": [],
    "compilerOptions": {
-      "baseUrl": ".",
       "forceConsistentCasingInFileNames": true,
       "strict": true,
       "paths": {
          "@/*": [
             "./src/*"
          ]
-      },
-      "ignoreDeprecations": "6.0"
+      }
    },
    "references": [
       {
