@@ -1,1 +1,1 @@
-
+the purpose of the app is to create the frontend of an hostel listing web app called `APP_NAME=houster`. the backend will be created using PHP. so proper commenting should be used in my third person viuew to give direction on what each components does
