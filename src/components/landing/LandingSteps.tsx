@@ -71,7 +71,7 @@ export function LandingSteps() {
 								{/* Mobile step spine */}
 								{index < STEPS.length - 1 && (
 									<div
-										className='absolute top-25 left-1/2 z-0 h-[calc(100%+2.5rem)] w-px -translate-x-1/2 bg-gradient-to-b from-primary/40 via-primary/15 to-transparent md:hidden'
+										className='absolute top-25 left-1/2 z-0 h-[calc(100%+2.5rem)] w-px -translate-x-1/2 bg-linear-to-b from-primary/40 via-primary/15 to-transparent md:hidden'
 										aria-hidden
 									/>
 								)}

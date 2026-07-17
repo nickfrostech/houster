@@ -77,7 +77,7 @@ export function useHostelsExplorer() {
 
 			setHostels(result);
 			setVisibleCount(LOAD_MORE_COUNT);
-		} catch (err) {
+		} catch {
 			setError("Failed to load hostels. Please check your connection.");
 		} finally {
 			setLoading(false);
