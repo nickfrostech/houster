@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
 	return (
-		<section className='relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden'>
+		<section className='relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden'>
 			{/* Background Image / Overlay */}
 			<div className='absolute inset-0 z-0'>
 				<img
@@ -59,7 +59,7 @@ export default function Hero() {
 					transition={{ duration: 0.5, delay: 0.2 }}
 					className='text-muted-foreground text-md md:text-lg font-medium max-w-2xl leading-relaxed'
 				>
-					Browse through verified hostels, find roommates, and connect with
+					Browse through verified hostels and accomodations, find roommates, and connect with
 					trusted agents instantly. Your comfort is our priority.
 				</motion.p>
 

@@ -1,23 +1,26 @@
-import { Share2, Globe, Building2 } from "lucide-react";
+/** @format */
+
+import { Share2, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APP_NAME = import.meta.env.VITE_APP_NAME || "Houster";
 
 export default function Footer() {
 	return (
-		<footer className='border-t border-border py-12 px-4 lg:px-20 mt-16 mb-16 md:mb-0 bg-background'>
+		<footer className='py-12 px-4 lg:px-20 mt-16 mb-16 md:mb-0 bg-chart-1/10'>
 			<div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12'>
 				<div className='col-span-1 md:col-span-2 flex flex-col gap-6'>
 					<Link to='/' className='flex items-center gap-2 text-primary'>
-						<div className='bg-primary/10 p-2 rounded-lg'>
+						{/* <div className='bg-primary/10 p-2 rounded-lg'>
 							<Building2 className='w-5 h-5 text-primary' />
-						</div>
+						</div> */}
 						<h2 className='text-foreground text-xl font-black capitalize tracking-tight'>
 							{APP_NAME}
 						</h2>
 					</Link>
 					<p className='text-muted-foreground max-w-sm leading-relaxed font-medium'>
-						Helping students and renters find the perfect hostels with ease, transparency, and trust.
+						Helping students and renters find the perfect hostels with
+						ease, transparency, and trust.
 					</p>
 					<div className='flex gap-4'>
 						<a
@@ -43,22 +46,34 @@ export default function Footer() {
 					</h4>
 					<ul className='flex flex-col gap-4 text-muted-foreground text-sm font-medium'>
 						<li>
-							<a className='hover:text-primary transition-colors flex items-center gap-2' href='#'>
+							<a
+								className='hover:text-primary transition-colors flex items-center gap-2'
+								href='#'
+							>
 								Booking Guide & Tips
 							</a>
 						</li>
 						<li>
-							<Link className='hover:text-primary transition-colors flex items-center gap-2' to='/blog'>
+							<Link
+								className='hover:text-primary transition-colors flex items-center gap-2'
+								to='/blog'
+							>
 								Blog & Updates
 							</Link>
 						</li>
 						<li>
-							<Link className='hover:text-primary transition-colors flex items-center gap-2' to='/faq'>
+							<Link
+								className='hover:text-primary transition-colors flex items-center gap-2'
+								to='/faq'
+							>
 								FAQ
 							</Link>
 						</li>
 						<li>
-							<Link className='hover:text-primary transition-colors flex items-center gap-2' to='/how-to-use'>
+							<Link
+								className='hover:text-primary transition-colors flex items-center gap-2'
+								to='/how-to-use'
+							>
 								How to Use
 							</Link>
 						</li>
@@ -71,17 +86,26 @@ export default function Footer() {
 					</h4>
 					<ul className='flex flex-col gap-4 text-muted-foreground text-sm font-medium'>
 						<li>
-							<Link className='hover:text-primary transition-colors' to='/privacy'>
+							<Link
+								className='hover:text-primary transition-colors'
+								to='/privacy'
+							>
 								Privacy Policy
 							</Link>
 						</li>
 						<li>
-							<Link className='hover:text-primary transition-colors' to='/terms'>
+							<Link
+								className='hover:text-primary transition-colors'
+								to='/terms'
+							>
 								Terms of Service
 							</Link>
 						</li>
 						<li>
-							<Link className='hover:text-primary transition-colors' to='/contact'>
+							<Link
+								className='hover:text-primary transition-colors'
+								to='/contact'
+							>
 								Contact Us
 							</Link>
 						</li>
