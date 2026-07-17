@@ -21,7 +21,7 @@ import { filterOptions, type HostelFilters } from "@/lib/filter-schema";
 
 export type HostelFilterFieldsProps = {
 	filters: HostelFilters;
-	updateFilter: (key: keyof HostelFilters, value: string) => void;
+	updateFilter: (key: keyof HostelFilters, value: string | null) => void;
 	/** Desktop row vs stacked (drawer / mobile-friendly) */
 	layout: "desktop" | "drawer";
 	className?: string;
@@ -48,7 +48,7 @@ export function HostelFilterFields({
 		>
 			{isDrawer && <Label className='text-foreground'>Hostel Type</Label>}
 			<Select
-				value={filters.type}
+				value={filters.type ?? undefined}
 				onValueChange={(v) => updateFilter("type", v)}
 			>
 				<SelectTrigger
@@ -78,7 +78,7 @@ export function HostelFilterFields({
 	const campusSelect = (
 		<div className={cn("min-w-0", isDrawer ? "w-full space-y-2" : "w-full flex-1 md:min-w-0")}>
 			{isDrawer && <Label className='text-foreground'>Campus Location</Label>}
-			<Select value={filters.campus} onValueChange={(v) => updateFilter("campus", v)}>
+			<Select value={filters.campus ?? undefined} onValueChange={(v) => updateFilter("campus", v)}>
 				<SelectTrigger className={cn("h-11 w-full min-h-11 px-3 text-sm rounded-full", !isDrawer && "min-w-35 flex-1")}>
 					<span className='flex items-center gap-2 font-medium text-foreground'>
 						{!isDrawer && <MapPin className="w-4 h-4 text-muted-foreground hidden sm:block" />}
@@ -99,7 +99,7 @@ export function HostelFilterFields({
 	const sortSelect = (
 		<div className={cn("min-w-0", isDrawer ? "w-full space-y-2" : "w-full flex-1 md:min-w-0")}>
 			{isDrawer && <Label className='text-foreground'>Sort By</Label>}
-			<Select value={filters.sortBy} onValueChange={(v) => updateFilter("sortBy", v)}>
+			<Select value={filters.sortBy ?? undefined} onValueChange={(v) => updateFilter("sortBy", v)}>
 				<SelectTrigger className={cn("h-11 w-full min-h-11 px-3 text-sm rounded-full", !isDrawer && "min-w-35 flex-1")}>
 					<span className='flex items-center gap-2 font-medium'>
 						<SelectValue placeholder='Sort By' />

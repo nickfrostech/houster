@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import type { Hostel } from "./HostelCard";
+import type { Hostel } from "@/lib/types";
 import { HostelCard } from "./HostelCard";
 import { HostelsEmptyState } from "./HostelsEmptyState";
 

@@ -89,7 +89,7 @@ export function useHostelsExplorer() {
 		fetchHostels();
 	}, [fetchHostels]);
 
-	const updateFilter = useCallback((key: keyof HostelFilters, value: string) => {
+	const updateFilter = useCallback((key: keyof HostelFilters, value: string | null) => {
 		setFilters((prev) => ({ ...prev, [key]: value }));
 	}, []);
 

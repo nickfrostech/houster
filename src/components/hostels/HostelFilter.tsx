@@ -20,7 +20,7 @@ export type HostelFiltersMobileDrawerProps = {
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
 	filters: HostelFilters;
-	updateFilter: (key: keyof HostelFilters, value: string) => void;
+	updateFilter: (key: keyof HostelFilters, value: string | null) => void;
 	hasActiveFilters: boolean;
 	onReset: () => void;
 };
