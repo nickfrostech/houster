@@ -45,13 +45,17 @@ export function HostelImageGallery({
 		<div className='flex flex-col gap-4'>
 			{/* Main Media */}
 			<div className='relative w-full aspect-4/3 sm:aspect-video rounded-2xl overflow-hidden bg-black group flex items-center justify-center'>
-				{currentMedia.type === 'video' ? (
+				{/* Image Counter Badge */}
+				<div className='absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-2'>
+					<Camera className='w-4 h-4' />
+					{currentIndex + 1} / {mediaItems.length}
+				</div>
+
+				{currentMedia.type === "video" ? (
 					<video
 						src={currentMedia.url}
 						controls
-						autoPlay
 						muted
-						loop
 						className='w-full h-full object-contain'
 					/>
 				) : (
@@ -61,12 +65,6 @@ export function HostelImageGallery({
 						className='w-full h-full object-cover transition-transform duration-500'
 					/>
 				)}
-
-				{/* Image Counter Badge */}
-				<div className='absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-2'>
-					<Camera className='w-4 h-4' />
-					{currentIndex + 1} / {mediaItems.length}
-				</div>
 
 				{/* Navigation Arrows */}
 				{mediaItems.length > 1 && (
@@ -102,14 +100,18 @@ export function HostelImageGallery({
 								"relative shrink-0 w-24 aspect-video rounded-xl overflow-hidden snap-start transition-all cursor-pointer bg-black",
 								currentIndex === idx
 									? "ring-2 ring-primary ring-offset-2 ring-offset-background"
-									: "opacity-60 hover:opacity-100"
+									: "opacity-60 hover:opacity-100",
 							)}
 						>
-							{media.type === 'video' ? (
+							{media.type === "video" ? (
 								<>
-									<video src={media.url} className='w-full h-full object-cover' muted />
-									<div className="absolute inset-0 flex items-center justify-center bg-black/30">
-										<PlayCircle className="w-8 h-8 text-white/80" />
+									<video
+										src={media.url}
+										className='w-full h-full object-cover'
+										muted
+									/>
+									<div className='absolute inset-0 flex items-center justify-center bg-black/30'>
+										<PlayCircle className='w-8 h-8 text-white/80' />
 									</div>
 								</>
 							) : (

@@ -28,7 +28,7 @@ export const RECENT_HOSTELS: Hostel[] = [
 		agent: {
 			name: "Okafor Chibuike",
 			avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-			joined: "1+ years on Hostelly",
+			joined: "1+ years on Houster",
 			verified: true,
 			phone: "08012345678",
 		}
