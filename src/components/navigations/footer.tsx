@@ -7,7 +7,7 @@ const APP_NAME = import.meta.env.VITE_APP_NAME || "Houster";
 
 export default function Footer() {
 	return (
-		<footer className='py-12 px-4 lg:px-20 mt-16 mb-16 md:mb-0 bg-chart-1/10'>
+		<footer className='py-12 px-4 lg:px-20 mb-16 md:mb-0 bg-chart-1/10'>
 			<div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12'>
 				<div className='col-span-1 md:col-span-2 flex flex-col gap-6'>
 					<Link to='/' className='flex items-center gap-2 text-primary'>
@@ -25,14 +25,14 @@ export default function Footer() {
 					<div className='flex gap-4'>
 						<a
 							title={`Share ${APP_NAME}`}
-							className='size-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-colors shadow-sm border border-border'
+							className='size-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-colors border border-border'
 							href='#'
 						>
 							<Share2 className='size-5' />
 						</a>
 						<a
 							title={`Visit ${APP_NAME} website`}
-							className='size-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-colors shadow-sm border border-border'
+							className='size-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-colors border border-border'
 							href='#'
 						>
 							<Globe className='size-5' />

@@ -20,11 +20,11 @@ export function HostelImageGallery({
 
 	const mediaItems = useMemo<MediaItem[]>(() => {
 		const items: MediaItem[] = [];
-		if (video) {
-			items.push({ type: 'video', url: video });
-		}
 		if (images && images.length > 0) {
 			items.push(...images.map((url) => ({ type: 'image' as const, url })));
+		}
+		if (video) {
+			items.push({ type: 'video', url: video });
 		}
 		return items;
 	}, [images, video]);

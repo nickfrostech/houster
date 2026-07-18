@@ -5,6 +5,7 @@ import {
 	AccordionTrigger,
 } from "@/components/ui/accordion";
 
+// Static list of Frequently Asked Questions
 const faqs = [
 	{
 		question: "Is Houster free to use for students?",
@@ -41,6 +42,12 @@ const faqs = [
 	},
 ];
 
+/**
+ * LandingFAQ Component
+ * 
+ * Renders a list of frequently asked questions using Shadcn's Accordion component.
+ * It provides quick answers to common user queries regarding the platform's usage, pricing, and safety.
+ */
 export function LandingFAQ() {
 	return (
 		<section
@@ -48,6 +55,7 @@ export function LandingFAQ() {
 			className='scroll-mt-24 px-4 py-20 sm:py-24 md:py-28 lg:px-20 bg-secondary/50 dark:bg-secondary/10'
 		>
 			<div className='mx-auto max-w-7xl'>
+				{/* Section Header */}
 				<div className='mb-10 text-center'>
 					<h2 className='text-3xl font-black tracking-tight text-foreground sm:text-4xl md:text-5xl'>
 						Frequently asked questions
@@ -58,6 +66,10 @@ export function LandingFAQ() {
 					</p>
 				</div>
 
+				{/* FAQ Accordion List
+				  * Renders an interactive list of questions where clicking expands the answer.
+				  * The `multiple` prop allows multiple FAQs to be open simultaneously.
+				  */}
 				<div className='mx-auto max-w-3xl mt-12'>
 					<Accordion
 						multiple

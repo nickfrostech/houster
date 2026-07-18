@@ -6,8 +6,10 @@ import { useEffect, useRef } from "react";
 import { AlertCircle, Home, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
+import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import type { Hostel } from "@/lib/types";
 import { HostelCard } from "./HostelCard";
 import { HostelsEmptyState } from "./HostelsEmptyState";
@@ -24,6 +26,12 @@ export type HostelsResultsSectionProps = {
 	onResetFilters: () => void;
 };
 
+/**
+ * HostelsResultsSection Component
+ * 
+ * Displays the grid of available hostels based on the current filters.
+ * Implements infinite scrolling using IntersectionObserver to fetch more results.
+ */
 export function HostelsResultsSection({
 	Hostels,
 	visibleHostels,
@@ -105,15 +113,16 @@ export function HostelsResultsSection({
 							Try again
 						</Button>
 
-						<Button
-							variant='secondary'
-							className='inline-flex items-center gap-2 px-5 py-6 rounded-xl font-bold'
+						<Link
+							to='/'
+							className={cn(
+								buttonVariants({ variant: "secondary" }),
+								"inline-flex items-center gap-2 px-5 py-6 rounded-xl font-bold"
+							)}
 						>
-							<Link to='/'>
-								<Home className='w-4 h-4' />
-								Back to Home
-							</Link>
-						</Button>
+							<Home className='w-4 h-4' />
+							Back to Home
+						</Link>
 					</div>
 				</motion.div>
 			) : null}

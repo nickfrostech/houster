@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ShieldCheck, MessageSquare, Search } from "lucide-react";
 
+// Array of core features offered by the platform.
 const FEATURES = [
 	{
 		icon: ShieldCheck,
@@ -22,6 +23,12 @@ const FEATURES = [
 	},
 ];
 
+/**
+ * LandingFeatures Component
+ * 
+ * Displays the core benefits and features of using the Houster platform.
+ * It uses a grid layout and framer-motion to animate the feature cards in sequence.
+ */
 export function LandingFeatures() {
 	return (
 		<section
@@ -29,6 +36,7 @@ export function LandingFeatures() {
 			className='scroll-mt-24 px-4 py-16 sm:py-20 md:py-24 lg:px-20'
 		>
 			<div className='mx-auto max-w-7xl'>
+				{/* Section Header */}
 				<div className='mb-10 text-center sm:mb-12 md:mb-14'>
 					<span className='mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-primary sm:mb-4 sm:text-sm'>
 						Why students use Houster
@@ -41,6 +49,10 @@ export function LandingFeatures() {
 					</p>
 				</div>
 
+				{/* Features Grid 
+				  * Maps over the FEATURES array to render individual feature cards.
+				  * Each card uses staggered framer-motion animations on scroll-into-view.
+				  */}
 				<div className='mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 sm:gap-5 md:grid-cols-3 md:gap-5 lg:gap-8'>
 					{FEATURES.map(({ icon: Icon, title, description }, index) => (
 						<motion.div
@@ -51,7 +63,7 @@ export function LandingFeatures() {
 							transition={{ duration: 0.4, delay: index * 0.08 }}
 							className='h-full'
 						>
-							<div className='group flex h-full flex-col rounded-3xl border border-border/50 bg-background/50 p-6 transition-[border-color,box-shadow,background-color] duration-300 hover:border-primary/35 hover:bg-background hover:shadow-lg sm:p-8'>
+							<div className='group flex h-full flex-col rounded-3xl border border-border/50 bg-background/50 p-6 transition-[border-color,box-shadow,background-color] duration-300 hover:border-primary/35 hover:bg-background hover:shadow-md sm:p-8'>
 								<div className='mb-5 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary/20 sm:size-16'>
 									<Icon
 										className='size-7 sm:size-8'

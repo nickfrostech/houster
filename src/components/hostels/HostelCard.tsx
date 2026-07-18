@@ -11,7 +11,7 @@ export function HostelCard({ hostel }: { hostel: Hostel }) {
 		<Link to={`/hostels/${hostel.id}`} className='block group h-full'>
 			<motion.div
 				whileHover={{ y: -4 }}
-				className='bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col'
+				className='bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col'
 			>
 				<div className='relative aspect-video overflow-hidden bg-muted'>
 					<img
@@ -22,7 +22,7 @@ export function HostelCard({ hostel }: { hostel: Hostel }) {
 					<div className='absolute top-3 left-3 flex gap-2 flex-wrap'>
 						<Badge
 							variant='secondary'
-							className='bg-background/90 backdrop-blur-sm text-foreground font-semibold shadow-sm rounded-md px-2 py-1'
+							className='bg-background/90 backdrop-blur-sm text-foreground font-semibold rounded-md px-2 py-1'
 						>
 							{/* <Home className='w-3 h-3 mr-1.5' /> */}
 							{hostel.type}
@@ -30,7 +30,7 @@ export function HostelCard({ hostel }: { hostel: Hostel }) {
 					</div>
 					{hostel.negotiable && (
 						<div className='absolute top-3 right-3'>
-							<Badge className='bg-green-500/90 hover:bg-green-600/90 text-white backdrop-blur-sm shadow-sm border-none rounded-md px-2 py-1'>
+							<Badge className='bg-green-500/90 hover:bg-green-600/90 text-white backdrop-blur-sm border-none rounded-md px-2 py-1'>
 								Negotiable
 							</Badge>
 						</div>

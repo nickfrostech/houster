@@ -13,12 +13,13 @@ export function HostelsEmptyState({ onReset }: { onReset: () => void }) {
 				No hostels found
 			</h3>
 			<p className='mb-8 max-w-sm text-base text-muted-foreground'>
-				We couldn't find any hostels matching your current filters. Try adjusting your search criteria or resetting filters.
+				We couldn't find any hostels matching your current filters. Try
+				adjusting your search criteria or resetting filters.
 			</p>
 			<Button
 				variant='default'
 				onClick={onReset}
-				className='min-h-12 rounded-full px-8 font-semibold shadow-sm'
+				className='min-h-11 rounded-full px-8 font-semibold'
 			>
 				Reset all filters
 			</Button>

@@ -13,6 +13,18 @@ import { HostelSidebar } from "@/components/hostels/HostelSidebar";
 import { SimilarHostels } from "@/components/hostels/SimilarHostels";
 import { Button } from "@/components/ui/button";
 
+/**
+ * HostelDetailsPage Component
+ * 
+ * The main entry point for viewing a single hostel's details.
+ * It fetches the hostel data based on the route parameter `id`,
+ * and renders the image gallery, information section, sidebar actions, and similar listings.
+ * 
+ * BACKEND INTEGRATION NOTE:
+ * - The `useEffect` currently simulates an API fetch using `setTimeout`.
+ * - This should be replaced with a real `fetch` or React Query hook querying `/api/hostels/:id`.
+ * - The `loading` and `error` states should handle actual network states.
+ */
 export function HostelDetailsPage() {
 	const { id } = useParams<{ id: string }>();
 	const [hostel, setHostel] = useState<Hostel | null>(null);
@@ -77,11 +89,11 @@ export function HostelDetailsPage() {
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-8 items-start'>
 					{/* Left Column (Images + Info) */}
 					<div className='lg:col-span-2 flex flex-col gap-8'>
-						<div className='bg-background rounded-3xl p-4 md:p-6 border shadow-sm'>
+						<div className='bg-background rounded-3xl p-4 md:p-6 border'>
 							<HostelImageGallery images={displayImages} video={hostel.video} title={hostel.title} />
 						</div>
 
-						<div className='bg-background rounded-3xl p-6 md:p-8 border shadow-sm'>
+						<div className='bg-background rounded-3xl p-6 md:p-8 border'>
 							<HostelInfoSection hostel={hostel} />
 						</div>
 					</div>

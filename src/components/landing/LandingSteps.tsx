@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
  * (e.g., from a CMS), the backend should return an array of { iconName, title, description }.
  */
 
+// Array containing the three main steps to display
 const STEPS = [
 	{
 		icon: Search,
@@ -31,6 +32,13 @@ const STEPS = [
 	},
 ];
 
+/**
+ * LandingSteps Component
+ * 
+ * Displays a 3-step guide on how to use the platform.
+ * It uses framer-motion to fade in each step and includes a visual connector line
+ * on desktop views to tie the steps together.
+ */
 export function LandingSteps() {
 	return (
 		<section
@@ -38,6 +46,7 @@ export function LandingSteps() {
 			className='scroll-mt-24 px-4 py-20 sm:py-24 lg:px-20 bg-background'
 		>
 			<div className='mx-auto max-w-7xl'>
+				{/* Section Header */}
 				<div className='mb-10 text-center'>
 					<span className='mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-primary'>
 						How it works
@@ -50,14 +59,19 @@ export function LandingSteps() {
 					</p>
 				</div>
 
+				{/* Steps Container */}
 				<div className='relative mx-auto max-w-6xl mt-12'>
-					{/* Desktop connector */}
+					{/* Desktop connector line 
+					  * A dashed line that sits behind the icons on desktop sizes 
+					  * to visually connect step 1 -> step 2 -> step 3.
+					  */}
 					<div className='pointer-events-none absolute top-13 right-0 left-0 hidden md:block'>
 						<div className='relative h-0.5'>
 							<div className='absolute top-1/2 right-[18%] left-[18%] -translate-y-1/2 border-t-2 border-dashed border-primary/30' />
 						</div>
 					</div>
 
+					{/* The Grid mapping the steps */}
 					<div className='grid w-full grid-cols-1 items-start gap-12 md:grid-cols-3 md:gap-10 lg:gap-14'>
 						{STEPS.map(({ icon: Icon, title, description }, index) => (
 							<motion.div
@@ -76,7 +90,7 @@ export function LandingSteps() {
 									/>
 								)}
 
-								<div className='relative z-10 mb-6 flex size-24 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 bg-card text-primary shadow-lg ring-4 ring-primary/5 transition-all duration-300 group-hover:border-primary group-hover:ring-primary/20 group-hover:-translate-y-1 sm:size-26'>
+								<div className='relative z-10 mb-6 flex size-24 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 bg-card text-primary shadow-md ring-4 ring-primary/5 transition-all duration-300 group-hover:border-primary group-hover:ring-primary/20 group-hover:-translate-y-1 sm:size-26'>
 									<Icon
 										className='size-10 transition-transform duration-300 group-hover:scale-110 sm:size-11'
 										strokeWidth={2}

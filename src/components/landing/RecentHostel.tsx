@@ -1,10 +1,15 @@
 /** @format */
 
+import { useState, useEffect } from "react";
 import { HostelCard } from "../hostels/HostelCard";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { RECENT_HOSTELS } from "@/lib/mock_data";
+import { LoadingState } from "../ui/LoadingState";
+import { ErrorState } from "../ui/ErrorState";
+import { motion } from "motion/react";
+import type { Hostel } from "@/lib/types";
 
 /*
  * BACKEND INTEGRATION NOTE:
@@ -13,11 +18,36 @@ import { RECENT_HOSTELS } from "@/lib/mock_data";
  * The PHP backend should return JSON matching the `Hostel` interface.
  */
 
-
+/**
+ * RecentHostel Component
+ * 
+ * Displays a grid of recently added hostels.
+ * Currently simulates a network fetch with a loading spinner.
+ * In production, it will fetch the 8 most recent properties from the database.
+ */
 export function RecentHostel() {
+	const [hostels, setHostels] = useState<Hostel[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(false);
+
+	const fetchHostels = () => {
+		setLoading(true);
+		setError(false);
+		// Simulate network request
+		setTimeout(() => {
+			setHostels(RECENT_HOSTELS);
+			setLoading(false);
+		}, 1200);
+	};
+
+	useEffect(() => {
+		fetchHostels();
+	}, []);
+
 	return (
 		<section className='py-20 px-4 md:px-6 lg:px-20 bg-chart-1/10 rounded-4xl'>
 			<div className='max-w-7xl mx-auto'>
+				{/* Section Header */}
 				<div className='mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4'>
 					<div>
 						<span className='mb-2 block text-sm font-bold uppercase tracking-[0.2em] text-primary'>
@@ -40,13 +70,33 @@ export function RecentHostel() {
 					</Link>
 				</div>
 
-				{/* Grid Configuration: 1 on <400px, 2 on normal mobile, 3 on md, 4 on lg */}
-				<div className='grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
-					{RECENT_HOSTELS.map((hostel) => (
-						<HostelCard key={hostel.id} hostel={hostel} />
-					))}
-				</div>
+				{/* 
+				  * Grid Configuration & Data Fetching States
+				  * Shows the LoadingState component while fetching data.
+				  * Shows ErrorState if the fetch fails.
+				  * Renders a responsive grid of HostelCards with staggered animations on success.
+				  */}
+				{loading ? (
+					<LoadingState text="Loading latest properties..." />
+				) : error ? (
+					<ErrorState onRetry={fetchHostels} />
+				) : (
+					<div className='grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+						{hostels.map((hostel, i) => (
+							<motion.div
+								key={hostel.id}
+								initial={{ opacity: 0, y: 20 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								transition={{ duration: 0.4, delay: i * 0.1 }}
+							>
+								<HostelCard hostel={hostel} />
+							</motion.div>
+						))}
+					</div>
+				)}
 
+				{/* Call to Action to view all listings */}
 				<div className='flex w-full justify-center pt-5'>
 					<Link to='/hostels'>
 						<Button variant='default' className='rounded-full px-10 py-5 text-lg'>

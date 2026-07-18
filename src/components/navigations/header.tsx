@@ -7,6 +7,7 @@ import {
 	UserSearch,
 	LogIn,
 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ThemeToggle } from "../ThemeToggle";
 
@@ -29,9 +30,11 @@ export default function Header() {
 		console.log("Searching for:", query.trim());
 		setSearchOpen(false);
 		setQuery("");
+		setQuery("");
 	};
 
-	const pathname = window.location.pathname;
+	const location = useLocation();
+	const pathname = location.pathname;
 
 	const NAV_ITEMS = [
 		{ href: "/", label: "Home", icon: Home },
@@ -44,21 +47,21 @@ export default function Header() {
 			<div className='max-w-full mx-auto flex items-center justify-between gap-4'>
 				{/* Left: Logo & Nav */}
 				<div className='flex items-center gap-10'>
-					<a href='/' className='flex items-center gap-2 text-primary'>
+					<Link to='/' className='flex items-center gap-2 text-primary'>
 						{/* <Building2 className='w-8 h-8 text-primary' /> */}
-						<h2 className='text-2xl text-foreground font-black capitalize tracking-tight'>
+						<h2 className='text-2xl text-primary font-black capitalize tracking-tight'>
 							{APP_NAME}
 						</h2>
-					</a>
+					</Link>
 
 					<nav className='hidden md:flex items-end justify-stretch gap-2'>
 						{NAV_ITEMS.map(({ href, label, icon: Icon }) => {
 							const isActive = pathname === href;
 
 							return (
-								<a
+								<Link
 									key={href}
-									href={href}
+									to={href}
 									tabIndex={1}
 									className={`flex items-center gap-2 px-4 py-2 font-semibold transition-all ${
 										isActive
@@ -68,7 +71,7 @@ export default function Header() {
 								>
 									<Icon className='w-4 h-4' />
 									{label}
-								</a>
+								</Link>
 							);
 						})}
 					</nav>
@@ -89,7 +92,7 @@ export default function Header() {
 									damping: 28,
 								}}
 								onSubmit={handleSearch}
-								className='flex items-center gap-2 px-3 py-2 bg-muted border border-border rounded-full overflow-hidden shadow-inner'
+								className='flex items-center gap-2 px-3 py-2 bg-muted border border-border rounded-full overflow-hidden'
 							>
 								<Search className='w-4 h-4 text-muted-foreground shrink-0' />
 								<input
@@ -98,7 +101,7 @@ export default function Header() {
 									value={query}
 									onChange={(e) => setQuery(e.target.value)}
 									placeholder='Search hostels...'
-									className='flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground min-w-0'
+									className='flex-1 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground min-w-0 '
 								/>
 								<button
 									title='Cancel Search'
@@ -116,7 +119,7 @@ export default function Header() {
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 								onClick={() => setSearchOpen(true)}
-								className='flex items-center gap-2 px-4 py-2 bg-background border border-border shadow-sm rounded-full text-muted-foreground text-sm font-medium hover:text-foreground hover:bg-muted/50 transition-colors'
+								className='flex items-center gap-2 px-4 py-2 bg-muted border border-border rounded-full text-muted-foreground text-sm font-medium cursor-pointer'
 							>
 								<Search className='w-4 h-4' />
 								<span className='hidden md:inline'>Search...</span>
@@ -126,13 +129,13 @@ export default function Header() {
 
 					<ThemeToggle />
 
-					<a 
-						href="/login"
-						className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20"
+					<Link 
+						to="/login"
+						className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-colors"
 					>
 						<LogIn className="w-4 h-4" />
 						Login
-					</a>
+					</Link>
 				</div>
 			</div>
 		</header>

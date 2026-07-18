@@ -30,6 +30,14 @@ export type HostelFilterFieldsProps = {
 const selectContentClassDrawer =
 	"z-[200] max-h-[min(280px,45vh)] w-[var(--radix-select-trigger-width)]";
 
+/**
+ * HostelFilterFields Component
+ * 
+ * Reusable form fields for filtering hostels (Type, Campus, Sort, Price).
+ * Supports two layouts:
+ * - 'desktop': Renders horizontally inline.
+ * - 'drawer': Renders vertically with labels (used inside the mobile dialog).
+ */
 export function HostelFilterFields({
 	filters,
 	updateFilter,
@@ -39,6 +47,7 @@ export function HostelFilterFields({
 	const isDrawer = layout === "drawer";
 	const selectContentClassName = isDrawer ? selectContentClassDrawer : "p-1";
 
+	{/* 1. Property Type Selector */}
 	const typeSelect = (
 		<div
 			className={cn(
@@ -75,6 +84,7 @@ export function HostelFilterFields({
 		</div>
 	);
 
+	{/* 2. Campus Location Selector */}
 	const campusSelect = (
 		<div className={cn("min-w-0", isDrawer ? "w-full space-y-2" : "w-full flex-1 md:min-w-0")}>
 			{isDrawer && <Label className='text-foreground'>Campus Location</Label>}
@@ -96,6 +106,7 @@ export function HostelFilterFields({
 		</div>
 	);
 
+	{/* 3. Sorting Options Selector */}
 	const sortSelect = (
 		<div className={cn("min-w-0", isDrawer ? "w-full space-y-2" : "w-full flex-1 md:min-w-0")}>
 			{isDrawer && <Label className='text-foreground'>Sort By</Label>}
@@ -116,6 +127,7 @@ export function HostelFilterFields({
 		</div>
 	);
 
+	{/* 4. Price Range Inputs (Only visible in Drawer layout currently) */}
 	const priceRange = (
 		<div className={cn("min-w-0", isDrawer ? "w-full space-y-2" : "hidden")}>
 			{isDrawer && <Label className='mb-1 block'>Price Range (₦)</Label>}
@@ -143,6 +155,7 @@ export function HostelFilterFields({
 		</div>
 	);
 
+	// Desktop Layout: Render horizontally
 	if (layout === "desktop") {
 		return (
 			<div className={cn("flex w-full flex-wrap gap-3 md:flex-nowrap", className)}>
@@ -152,6 +165,7 @@ export function HostelFilterFields({
 		);
 	}
 
+	// Drawer Layout: Render vertically
 	return (
 		<div className={cn("flex flex-col gap-6", className)}>
 			{typeSelect}

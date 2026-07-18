@@ -1,4 +1,4 @@
-import { Home, Building2, UserSearch, LogIn } from "lucide-react";
+import { Home, Building2, UserSearch, LayoutDashboard } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 
@@ -6,7 +6,7 @@ const NAV_ITEMS = [
 	{ href: "/", label: "Home", icon: Home },
 	{ href: "/hostels", label: "Hostels", icon: Building2 },
 	{ href: "/agents", label: "Agents Search", icon: UserSearch },
-	{ href: "/login", label: "Login", icon: LogIn },
+	{ href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
 ];
 
 export function BottomNav() {
