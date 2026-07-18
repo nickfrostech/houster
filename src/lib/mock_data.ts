@@ -20,7 +20,15 @@ export const RECENT_HOSTELS: Hostel[] = [
 		location: "Oye",
 		views: 124,
 		postedAt: "2 hours ago",
-		facilities: ["Running Water", "Solar Electricity", "POP Ceiling", "Tiled Floors", "Fitted Kitchen", "Prepaid Meter", "Security Gate"],
+		facilities: [
+			"Running Water",
+			"Solar Electricity",
+			"POP Ceiling",
+			"Tiled Floors",
+			"Fitted Kitchen",
+			"Prepaid Meter",
+			"Security Gate",
+		],
 		unitsAvailable: 2,
 		distanceToSchool: "5 minutes walk",
 		closestLandmark: "Main Campus Gate",
@@ -33,15 +41,15 @@ export const RECENT_HOSTELS: Hostel[] = [
 			verified: true,
 			phone: "08012345678",
 			role: "Agent",
-			activePropertiesCount: 12
-		}
+			activePropertiesCount: 12,
+		},
 	},
 	{
 		id: "2",
 		title: "Peaceful Haven Flat",
 		description:
 			"Spacious 2 bedroom flat perfect for sharing. Close to the main school gate.",
-		image: "https://images.unsplash.com/photo-1502672260266-1c1c24240f38?q=80&w=800&auto=format&fit=crop",
+		image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=800&auto=format&fit=crop",
 		type: "Flat",
 		price: "₦350,000",
 		period: "year",

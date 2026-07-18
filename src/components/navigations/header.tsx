@@ -48,7 +48,6 @@ export default function Header() {
 				{/* Left: Logo & Nav */}
 				<div className='flex items-center gap-10'>
 					<Link to='/' className='flex items-center gap-2 text-primary'>
-						{/* <Building2 className='w-8 h-8 text-primary' /> */}
 						<h2 className='text-2xl text-primary font-black capitalize tracking-tight'>
 							{APP_NAME}
 						</h2>

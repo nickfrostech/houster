@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Building2, Info, Loader2 } from "lucide-react";
+import { Info, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -100,9 +100,6 @@ export function SignupPage() {
 
 				<div className='relative z-10'>
 					<Link to='/' className='flex items-center gap-2 mb-12 w-fit'>
-						<div className='bg-background p-2 rounded-xl'>
-							<Building2 className='w-6 h-6 text-primary' />
-						</div>
 						<span className='text-2xl font-black tracking-tight'>
 							{APP_NAME}
 						</span>

@@ -11,9 +11,6 @@ export default function Footer() {
 			<div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12'>
 				<div className='col-span-1 md:col-span-2 flex flex-col gap-6'>
 					<Link to='/' className='flex items-center gap-2 text-primary'>
-						{/* <div className='bg-primary/10 p-2 rounded-lg'>
-							<Building2 className='w-5 h-5 text-primary' />
-						</div> */}
 						<h2 className='text-foreground text-xl font-black capitalize tracking-tight'>
 							{APP_NAME}
 						</h2>
