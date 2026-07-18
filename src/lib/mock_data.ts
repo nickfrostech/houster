@@ -1,5 +1,5 @@
 /** @format */
-import type { Hostel } from "./types";
+import type { Hostel, Agent } from "./types";
 
 export const RECENT_HOSTELS: Hostel[] = [
 	{
@@ -26,11 +26,14 @@ export const RECENT_HOSTELS: Hostel[] = [
 		closestLandmark: "Main Campus Gate",
 		video: "https://www.w3schools.com/html/mov_bbb.mp4",
 		agent: {
+			id: "a1",
 			name: "Okafor Chibuike",
 			avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
 			joined: "1+ years on Houster",
 			verified: true,
 			phone: "08012345678",
+			role: "Agent",
+			activePropertiesCount: 12
 		}
 	},
 	{
@@ -117,4 +120,67 @@ export const RECENT_HOSTELS: Hostel[] = [
 		negotiable: true,
 		location: "Oye",
 	},
+];
+
+export const MOCK_AGENTS: Agent[] = [
+	{
+		id: "a1",
+		name: "Okafor Chibuike",
+		avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+		joined: "1+ years on Houster",
+		verified: true,
+		phone: "08012345678",
+		role: "Agent",
+		activePropertiesCount: 12,
+	},
+	{
+		id: "a2",
+		name: "Mrs. Adebayo",
+		avatar: "https://i.pravatar.cc/150?img=47",
+		joined: "3 months on Houster",
+		verified: false,
+		phone: "08123456789",
+		role: "Landlord",
+		activePropertiesCount: 2,
+	},
+	{
+		id: "a3",
+		name: "Kingsley Eze",
+		avatar: "https://i.pravatar.cc/150?img=11",
+		joined: "2+ years on Houster",
+		verified: true,
+		phone: "07098765432",
+		role: "Agent",
+		activePropertiesCount: 45,
+	},
+	{
+		id: "a4",
+		name: "Tunde Ojo",
+		avatar: "https://i.pravatar.cc/150?img=60",
+		joined: "6 months on Houster",
+		verified: true,
+		phone: "09011223344",
+		role: "Student",
+		activePropertiesCount: 1,
+	},
+	{
+		id: "a5",
+		name: "Chief Nnamdi",
+		avatar: "https://i.pravatar.cc/150?img=68",
+		joined: "New to Houster",
+		verified: false,
+		phone: "08055555555",
+		role: "Landlord",
+		activePropertiesCount: 5,
+	},
+	{
+		id: "a6",
+		name: "Sarah Williams",
+		avatar: "https://i.pravatar.cc/150?img=32",
+		joined: "1 year on Houster",
+		verified: true,
+		phone: "08199998888",
+		role: "Agent",
+		activePropertiesCount: 8,
+	}
 ];

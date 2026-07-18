@@ -18,11 +18,16 @@ export interface Hostel {
 	unitsAvailable?: number;
 	distanceToSchool?: string;
 	closestLandmark?: string;
-	agent?: {
-		name: string;
-		avatar: string;
-		joined: string;
-		verified: boolean;
-		phone: string;
-	};
+	agent?: Agent;
+}
+
+export interface Agent {
+	id: string;
+	name: string;
+	avatar: string;
+	joined: string;
+	verified: boolean;
+	phone: string;
+	role: string;
+	activePropertiesCount: number;
 }
