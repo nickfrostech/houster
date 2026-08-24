@@ -1,15 +1,12 @@
 /** @format */
 
 import { useState, useEffect, useMemo, useCallback } from "react";
-import type { Agent } from "@/lib/types";
+import type { Agent, AgentFilters } from "@/lib/types";
 import { MOCK_AGENTS } from "@/lib/mock_data";
 
-export interface AgentFilters {
-	searchQuery: string;
-	role: string;
-	verified: string;
-	sortBy: string; // 'newest', 'oldest'
-}
+// AgentFilters now lives in the single source of truth; re-exported here so
+// existing `@/hooks/use-agents-explorer` importers keep working.
+export type { AgentFilters };
 
 const initialFilters: AgentFilters = {
 	searchQuery: "",

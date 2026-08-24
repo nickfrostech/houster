@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "motion/react";
 import type { Hostel } from "@/lib/types";
+import { formatNaira } from "@/lib/utils";
 
 export function HostelCard({ hostel }: { hostel: Hostel }) {
 	return (
@@ -56,7 +57,7 @@ export function HostelCard({ hostel }: { hostel: Hostel }) {
 							</span>
 							<div className='flex items-baseline gap-1'>
 								<span className='text-lg font-black text-primary'>
-									{hostel.price}
+									{formatNaira(hostel.price)}
 								</span>
 								<span className='text-xs text-muted-foreground font-medium'>
 									/{hostel.period}

@@ -29,7 +29,7 @@ export function LoginPage() {
 	 * {
 	 *   "token": "jwt_token_here",
 	 *   "user": {
-	 *     "id": 1,
+	 *     "id": "1",
 	 *     "name": "John Doe",
 	 *     "email": "user@example.com",
 	 *     "role": "Agent"

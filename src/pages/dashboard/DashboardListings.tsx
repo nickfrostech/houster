@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "motion/react";
 import { RECENT_HOSTELS } from "@/lib/mock_data";
+import { formatNaira } from "@/lib/utils";
 
 /**
  * DashboardListings Component
@@ -105,10 +106,10 @@ export function DashboardListings() {
 											</span>
 											<div className='flex items-baseline gap-1'>
 												<span className='text-lg font-black text-primary'>
-													{hostel.price}
+													{formatNaira(hostel.price)}
 												</span>
 												<span className='text-xs text-muted-foreground font-medium'>
-													/{hostel.period || 'yr'}
+													/{hostel.period}
 												</span>
 											</div>
 										</div>

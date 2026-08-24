@@ -18,6 +18,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RECENT_HOSTELS } from "@/lib/mock_data";
+import { CAMPUSES } from "@/lib/filter-schema";
 
 const MAX_FACILITIES = 8;
 const MAX_DESCRIPTION_LENGTH = 500;
@@ -40,7 +41,7 @@ export function CreateListingPage() {
 	const [formData, setFormData] = useState({
 		title: "",
 		price: "",
-		period: "yr",
+		period: "year",
 		negotiable: false,
 		type: "",
 		campus: "",
@@ -56,19 +57,17 @@ export function CreateListingPage() {
 		if (isEditMode) {
 			const hostel = RECENT_HOSTELS.find((h) => h.id === id);
 			if (hostel) {
-				const isDefaultCampus = ["Oye", "Ikole", "Ido"].includes(
+				const isKnownCampus = (CAMPUSES as string[]).includes(
 					hostel.location,
 				);
 				setFormData({
 					title: hostel.title,
-					price: hostel.price.replace(/,/g, ""),
-					period: hostel.period || "yr",
+					price: String(hostel.price),
+					period: hostel.period,
 					negotiable: hostel.negotiable || false,
 					type: hostel.type,
-					campus: isDefaultCampus
-						? hostel.location.toLowerCase()
-						: "others",
-					customCampus: isDefaultCampus ? "" : hostel.location,
+					campus: isKnownCampus ? hostel.location : "Others",
+					customCampus: isKnownCampus ? "" : hostel.location,
 					units: hostel.unitsAvailable?.toString() || "1",
 					facilities: hostel.facilities || [],
 					description: hostel.description || "",
@@ -215,8 +214,8 @@ export function CreateListingPage() {
 										<SelectValue />
 									</SelectTrigger>
 									<SelectContent>
-										<SelectItem value='yr'>Per Year</SelectItem>
-										<SelectItem value='mo'>Per Month</SelectItem>
+										<SelectItem value='year'>Per Year</SelectItem>
+										<SelectItem value='month'>Per Month</SelectItem>
 									</SelectContent>
 								</Select>
 							</div>
@@ -232,17 +231,17 @@ export function CreateListingPage() {
 										<SelectValue placeholder='Select type' />
 									</SelectTrigger>
 									<SelectContent>
-										<SelectItem value='self-con'>
+										<SelectItem value='Self Con'>
 											Self-Contain
 										</SelectItem>
-										<SelectItem value='single-room'>
+										<SelectItem value='Single Room'>
 											Single Room
 										</SelectItem>
-										<SelectItem value='flat'>Flat</SelectItem>
-										<SelectItem value='shared'>
+										<SelectItem value='Flat'>Flat</SelectItem>
+										<SelectItem value='Shared'>
 											Shared Room
 										</SelectItem>
-										<SelectItem value='others'>Others</SelectItem>
+										<SelectItem value='Others'>Others</SelectItem>
 									</SelectContent>
 								</Select>
 							</div>
@@ -289,15 +288,15 @@ export function CreateListingPage() {
 										<SelectValue placeholder='Select campus' />
 									</SelectTrigger>
 									<SelectContent>
-										<SelectItem value='oye'>Oye Campus</SelectItem>
-										<SelectItem value='ikole'>
-											Ikole Campus
-										</SelectItem>
-										<SelectItem value='ido'>Ido Campus</SelectItem>
-										<SelectItem value='others'>Others</SelectItem>
+										{CAMPUSES.map((campus) => (
+											<SelectItem key={campus} value={campus}>
+												{campus} Campus
+											</SelectItem>
+										))}
+										<SelectItem value='Others'>Others</SelectItem>
 									</SelectContent>
 								</Select>
-								{formData.campus === "others" && (
+								{formData.campus === "Others" && (
 									<Input
 										id='customCampus'
 										placeholder='Enter custom location...'

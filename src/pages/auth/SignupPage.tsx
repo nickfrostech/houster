@@ -56,7 +56,7 @@ export function SignupPage() {
 	 *   "message": "Registration successful",
 	 *   "token": "jwt_token_here",
 	 *   "user": {
-	 *     "id": 1,
+	 *     "id": "1",
 	 *     "name": "John Doe",
 	 *     "role": "Agent"
 	 *   }

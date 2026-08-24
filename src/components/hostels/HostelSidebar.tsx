@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { cn, formatNaira, formatRelativeTime } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import type { Hostel } from "@/lib/types";
 
@@ -15,7 +15,7 @@ export function HostelSidebar({ hostel }: { hostel: Hostel }) {
 			{/* Price Card */}
 			<Card className='p-6 rounded-2xl border-border/50'>
 				<div className='text-3xl font-black text-foreground mb-4 tracking-tight'>
-					{hostel.price}
+					{formatNaira(hostel.price)}
 				</div>
 			</Card>
 
@@ -36,7 +36,7 @@ export function HostelSidebar({ hostel }: { hostel: Hostel }) {
 							{hostel.agent?.name || "Verified Agent"}
 						</h3>
 						<div className='text-sm text-muted-foreground mt-0.5 space-y-0.5'>
-							<div>{hostel.agent?.joined || "Recently joined"}</div>
+							<div>{hostel.agent ? formatRelativeTime(hostel.agent.joinedAt) : "Recently joined"}</div>
 							{hostel.agent?.verified && (
 								<div className='flex items-center gap-1 text-emerald-600 font-medium'>
 									<ShieldCheck className='w-4 h-4' />

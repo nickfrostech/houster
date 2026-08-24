@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck, Building, Phone } from "lucide-react";
 import type { Agent } from "@/lib/types";
+import { formatRelativeTime } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -33,7 +34,7 @@ export function AgentCard({ agent }: AgentCardProps) {
 					<div className='flex-1 min-w-0'>
 						<h3 className='font-bold text-lg line-clamp-1'>{agent.name}</h3>
 						<p className='text-sm text-muted-foreground'>{agent.role}</p>
-						<p className='text-xs text-muted-foreground mt-0.5'>{agent.joined}</p>
+						<p className='text-xs text-muted-foreground mt-0.5'>Joined {formatRelativeTime(agent.joinedAt)}</p>
 					</div>
 				</div>
 

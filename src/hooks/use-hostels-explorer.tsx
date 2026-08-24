@@ -59,19 +59,19 @@ export function useHostelsExplorer() {
 
 			if (filters.minPrice) {
 				const min = parseInt(filters.minPrice, 10);
-				result = result.filter((h) => parseInt(h.price.replace(/\D/g, "")) >= min);
+				result = result.filter((h) => h.price >= min);
 			}
 
 			if (filters.maxPrice) {
 				const max = parseInt(filters.maxPrice, 10);
-				result = result.filter((h) => parseInt(h.price.replace(/\D/g, "")) <= max);
+				result = result.filter((h) => h.price <= max);
 			}
 
 			// Backend Simulation: Sorting
 			if (filters.sortBy === "price_asc") {
-				result.sort((a, b) => parseInt(a.price.replace(/\D/g, "")) - parseInt(b.price.replace(/\D/g, "")));
+				result.sort((a, b) => a.price - b.price);
 			} else if (filters.sortBy === "price_desc") {
-				result.sort((a, b) => parseInt(b.price.replace(/\D/g, "")) - parseInt(a.price.replace(/\D/g, "")));
+				result.sort((a, b) => b.price - a.price);
 			}
 			// newest and oldest can be mock sorted by ID since we don't have dates in mock yet
 

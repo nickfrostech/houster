@@ -5,7 +5,7 @@ import { ArrowLeft, ShieldCheck, Phone, Building, CalendarDays } from "lucide-re
 import { MOCK_AGENTS, RECENT_HOSTELS } from "@/lib/mock_data";
 import { HostelCard } from "@/components/hostels/HostelCard";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, formatRelativeTime } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
 export function AgentProfilePage() {
@@ -75,7 +75,7 @@ export function AgentProfilePage() {
 							<div className='flex flex-wrap items-center gap-4 text-sm font-medium text-muted-foreground'>
 								<div className='flex items-center gap-1.5'>
 									<CalendarDays className='w-4 h-4 shrink-0' />
-									Joined {agent.joined}
+									Joined {formatRelativeTime(agent.joinedAt)}
 								</div>
 								<div className='flex items-center gap-1.5'>
 									<Building className='w-4 h-4 shrink-0 text-primary' />

@@ -5,6 +5,7 @@ import { Copy, Check, Eye, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import type { Hostel } from "@/lib/types";
+import { formatNaira, formatRelativeTime } from "@/lib/utils";
 
 export function HostelInfoSection({ hostel }: { hostel: Hostel }) {
 	const [copied, setCopied] = useState(false);
@@ -36,7 +37,7 @@ export function HostelInfoSection({ hostel }: { hostel: Hostel }) {
 						{hostel.location} Campus
 					</div>
 					<div className='w-1 h-1 rounded-full bg-border' />
-					<div>Posted {hostel.postedAt || "Recently"}</div>
+					<div>Posted {formatRelativeTime(hostel.postedAt)}</div>
 					<div className='w-1 h-1 rounded-full bg-border' />
 					<div className='flex items-center gap-1.5'>
 						<Eye className='w-4 h-4' />
@@ -49,7 +50,7 @@ export function HostelInfoSection({ hostel }: { hostel: Hostel }) {
 			<div className='grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4 py-6 border-y border-border/50'>
 				<div>
 					<div className='text-sm text-muted-foreground mb-1'>Price</div>
-					<div className='font-bold text-foreground'>{hostel.price} / {hostel.period}</div>
+					<div className='font-bold text-foreground'>{formatNaira(hostel.price)} / {hostel.period}</div>
 				</div>
 				<div>
 					<div className='text-sm text-muted-foreground mb-1'>Type</div>
